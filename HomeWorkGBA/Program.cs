@@ -20,43 +20,73 @@ namespace HomeWorkGBA
 
         }
 
+        /// <summary>
+        /// Вспомогательный метод для тестирования урока 1-3.
+        /// </summary>
+        /// <param name="z"></param>
+        /// <param name="result"></param>
+        public static void TestLesson1_3(long z, long result)
+        {
+            if (result == FibonachiR(0, 1, z)) Console.WriteLine("VALID TEST");
+            else Console.WriteLine("INVALID TEST");
+            if (result == FibonachiF(z)) Console.WriteLine("VALID TEST");
+            else Console.WriteLine("INVALID TEST");
+        }
+
+        /// <summary>
+        /// Запускаем тест урока 1_3
+        /// </summary>
         private static void Lesson1_3()
         {
-            Console.WriteLine("Введите целое число для расчета ряда фибоначи");
-            int number = int.Parse(Console.ReadLine());
-            Console.WriteLine("Каким способом вычислить? Введите 1 - для рекруссивного расчета, 2 для цикла");
-            string vibor = Console.ReadLine();
-            switch (vibor)
+            try
             {
-                case "1":
-                    FibonachiR(0,1,number);
-                    break;
-                case "2":
-                    FibinachiF(number);
-                    break;
+                TestLesson1_3(1, 1);
+                TestLesson1_3(2, 2);
+                TestLesson1_3(3, 6);
+                TestLesson1_3(15, 610);
+                TestLesson1_3(15, 1307674368000);
+                TestLesson1_3(-1, 1);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
         }
 
-        private static void FibinachiF( int number)
+        /// <summary>
+        /// Вычисляем число фибоначи циклом
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        private static long FibonachiF(long number)
         {
-            int t = 0;
-            int k = 1;
-            for (int i=0; i< number; i++)
+            if (number < 0) return -1;
+            long t = 0;
+            long k = 1;
+            for (int i = 0; i < number-1; i++)
             {
-                Console.Write($"{t} ");
-                int m = k;
+               // Console.WriteLine(t);
+                long m = k;
                 k = t + k;
                 t = m;
             }
-
+            return k;
         }
 
-        private static void FibonachiR(int first, int second, int number)
+        /// <summary>
+        /// Вычисляем число фибоначи рекурсивным методом
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        private static long FibonachiR(long first, long second, long number)
         {
-            if (number == 0) return;
-            Console.Write($"{first} ");
+            if (number < 0) return -1;
+            if (number == 0) return first;
             number--;
-            FibonachiR(second, first + second, number);
+            long t = FibonachiR(second, first + second, number);
+            return t;
         }
 
         /// <summary>
@@ -64,11 +94,18 @@ namespace HomeWorkGBA
         /// </summary>
         static void Lesson1_1()
         {
-            Console.WriteLine("Введите целое число:");
-            int number = int.Parse(Console.ReadLine());
-            bool isSimple = IsSimpleNumber(number);
-            if (isSimple) Console.WriteLine("Число простое");
-            else Console.WriteLine("Число непростое");
+            if (IsSimpleNumber(3) == true) Console.WriteLine("VALID TEST");
+            else Console.WriteLine("INVALID TEST");
+            if (IsSimpleNumber(33) == false) Console.WriteLine("VALID TEST");
+            else Console.WriteLine("INVALID TEST");
+            if (IsSimpleNumber(168) == false) Console.WriteLine("VALID TEST");
+            else Console.WriteLine("INVALID TEST");
+            if (IsSimpleNumber(36) == true) Console.WriteLine("VALID TEST");
+            else Console.WriteLine("INVALID TEST");
+            if (IsSimpleNumber(103) == false) Console.WriteLine("VALID TEST");
+            else Console.WriteLine("INVALID TEST");
+            if (IsSimpleNumber(199) == false) Console.WriteLine("VALID TEST");
+            else Console.WriteLine("INVALID TEST");
         }
 
         /// <summary>
