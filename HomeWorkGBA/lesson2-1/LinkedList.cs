@@ -56,6 +56,7 @@ namespace HomeWorkGBA.lesson2_1
             while (currentNode.value != searchValue)
             {
                 currentNode = currentNode.nextItem;
+                if (currentNode == null) return null;
             }
             return currentNode;
         }
@@ -69,9 +70,10 @@ namespace HomeWorkGBA.lesson2_1
             }
             else
             {
-                int count = 0;
-                while (currentNode != null)
+                int count = 1;
+                while (currentNode.nextItem != null)
                 {
+                    currentNode = currentNode.nextItem;
                     count++;
                 }
                 return count;
