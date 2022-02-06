@@ -35,10 +35,11 @@ namespace HomeWorkGBA.lesson2_1
             findNode = linkedList.FindNode(113);
             Console.WriteLine($"Значение найденного нода = {findNode.value}");
             Console.WriteLine(linkedList.GetCount());
-
-
-
-
+            for (int i = 3; i < 8; i++)
+            {
+                linkedList.RemoveNode(i);
+            }
+            Console.WriteLine(linkedList.GetCount());
             Console.WriteLine("Конец ДЗ по двхсвязным спискам");
         }
 

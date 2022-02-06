@@ -99,7 +99,7 @@ namespace HomeWorkGBA.lesson2_1
             }
             else
             {
-
+                RemoveNode(currentNode);
             }
         }
 
