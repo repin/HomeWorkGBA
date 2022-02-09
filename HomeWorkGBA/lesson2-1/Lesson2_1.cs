@@ -6,7 +6,7 @@ namespace HomeWorkGBA.lesson2_1
 {
     class Lesson2_1 : ILesson
     {
-        public string lessonID => "Lesson2-1";
+        public string lessonID => "2-1";
 
         public string discriprions => "Создание и работа с двухсвязным списком";
 
