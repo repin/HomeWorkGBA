@@ -21,6 +21,11 @@ namespace HomeWorkGBA
                     Console.WriteLine($"{lesson2_1.lessonID}: {lesson2_1.discriprions}");
                     lesson2_1.Demo();
                     break;
+                case "3-1":
+                    lesson3_1.Lesson3_1 lesson3_1 = new lesson3_1.Lesson3_1();
+                    Console.WriteLine($"{lesson3_1.lessonID}: {lesson3_1.discriprions}");
+                    lesson3_1.Demo();
+                    break;
             }
 
         }
