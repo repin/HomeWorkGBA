@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HomeWorkGBA.lesson4_1
 {
-    class lesson4_1 : ILesson
+    class Lesson4_1 : ILesson
     {
         public string lessonID => "4-1";
 
