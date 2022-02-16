@@ -11,9 +11,30 @@ namespace HomeWorkGBA.lesson5_1
 
         public string discriprions => "Чтения дерева методом BFS и DFS";
 
+
+        /// <summary>
+        /// Метод запускает тест реализации с выводом результатов в консоль. Метод генерирует дерево из ~25 элементов, выводит в деревоподобном виде, затем методами BFS И DFS.
+        /// </summary>
         public void Demo()
         {
-            throw new NotImplementedException();
+            Tree tree = new Tree();
+            tree.AddNode(50);
+            List<int> k = new List<int>();
+            for (int i=0; i < 25; i++)
+            {
+                int l = new Random().Next(100);
+                if (k.Contains(l))
+                    continue;
+                tree.AddNode(l);
+                k.Add(l);
+            }
+            Console.WriteLine("Вывод дерева как в задании 4-1");
+            tree.GetTreeInLine();
+            Console.WriteLine("Выводим дерево методом BFS");
+            readTreeBFS(tree.head);
+            Console.WriteLine("Выводим дерево методом DFS");
+            readTreeDFS(tree.head);
+
         }
 
 

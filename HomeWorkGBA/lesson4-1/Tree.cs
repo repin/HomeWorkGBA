@@ -9,7 +9,7 @@ namespace HomeWorkGBA.lesson4_1
         /// <summary>
         /// Поле, сохраняющее головной элемент дерева
         /// </summary>
-        Node<int> head;
+        public Node<int> head;
 
         /// <summary>
         /// Добавляет новый Node исходя из значения
