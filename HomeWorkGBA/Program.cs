@@ -13,7 +13,8 @@ namespace HomeWorkGBA
                 {new lesson1.Lesson1_3()},
                 {new lesson2_1.Lesson2_1()},
                 {new lesson3_1.Lesson3_1()},
-                {new lesson4_1.Lesson4_1()}
+                {new lesson4_1.Lesson4_1()},
+                {new lesson5_1.Lesson5_1()}
             };
             Console.WriteLine("Список заданий:");
             foreach (ILesson lesson in lessonList)
