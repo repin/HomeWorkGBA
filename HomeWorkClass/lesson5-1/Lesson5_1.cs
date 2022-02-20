@@ -19,14 +19,14 @@ namespace HomeWorkGBA.lesson5_1
         {
             Tree tree = new Tree();
             tree.AddNode(50);
-            List<int> k = new List<int>();
-            for (int i=0; i < 25; i++)
+            List<int> listNumbers = new List<int>();
+            for (int i = 0; i < 25; i++)
             {
                 int l = new Random().Next(100);
-                if (k.Contains(l))
+                if (listNumbers.Contains(l))
                     continue;
                 tree.AddNode(l);
-                k.Add(l);
+                listNumbers.Add(l);
             }
             Console.WriteLine("Вывод дерева как в задании 4-1");
             tree.GetTreeInLine();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace HomeWorkGBA
 {
@@ -7,35 +8,53 @@ namespace HomeWorkGBA
     {
         static void Main(string[] args)
         {
-            List<ILesson> lessonList = new List<ILesson>
-            {
-                {new lesson1.Lesson1_1()},
-                {new lesson1.Lesson1_3()},
-                {new lesson2_1.Lesson2_1()},
-                {new lesson3_1.Lesson3_1()},
-                {new lesson4_1.Lesson4_1()},
-                {new lesson5_1.Lesson5_1()}
-            };
+            // Подключаем библиотеку
+            Assembly asm = Assembly.LoadFrom("HomeWorkClass.dll");
+            Type[] types = asm.GetTypes();
             Console.WriteLine("Список заданий:");
-            foreach (ILesson lesson in lessonList)
+            // Перебираем типы и выводим на экран те, в которых есть метод "Demo()" 
+            foreach (var type in types)
             {
-                Console.WriteLine($"ID: {lesson.lessonID}; Название: {lesson.discriprions}");
+                if (type.IsInterface)
+                {
+                    continue;
+                }
+                foreach (var metod in type.GetMethods())
+                    if (metod.ToString() == "Void Demo()")
+                    {
+                        var obj = asm.CreateInstance(type.FullName);
+                        string lessonID = obj.GetType().GetProperty("lessonID").GetValue(obj, null).ToString();
+                        string discriprions = obj.GetType().GetProperty("discriprions").GetValue(obj, null).ToString();
+                        Console.WriteLine($"ID: {lessonID}; Название: {discriprions}");
+                    }
             }
             string input = null;
+            // Работа с вводом, ищем в методах свойство ссответствующее введенному заданию, запускаем метод из библиотеки.
             while (input != "exit")
             {
                 Console.WriteLine("Введите ID задания для продолжения или \"exit\" для выхода.");
                 input = Console.ReadLine();
-                foreach (ILesson lesson in lessonList)
+                foreach (var type in types)
                 {
-                    if (lesson.lessonID == input)
+                    if (type.IsInterface)
                     {
-                        lesson.Demo();
+                        continue;
+                    }
+                    foreach (var metod in type.GetMethods())
+                    {
+                        if (metod.ToString() == "Void Demo()")
+                        {
+                            var obj = Activator.CreateInstance(type);
+                            string lessonID = obj.GetType().GetProperty("lessonID").GetValue(obj, null).ToString();
+                            if (lessonID == input)
+                            {
+                                metod.Invoke(obj, null);
+                            }
+                        }
                     }
                 }
             }
-
-
         }
     }
 }
+
