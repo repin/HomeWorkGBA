@@ -23,8 +23,8 @@ namespace HomeWorkGBA
                     if (metod.ToString() == "Void Demo()")
                     {
                         var obj = asm.CreateInstance(type.FullName);
-                        string lessonID = obj.GetType().GetProperty("lessonID").GetValue(obj, null).ToString();
-                        string discriprions = obj.GetType().GetProperty("discriprions").GetValue(obj, null).ToString();
+                        string lessonID = type.GetProperty("lessonID").GetValue(obj, null).ToString();
+                        string discriprions = type.GetProperty("discriprions").GetValue(obj, null).ToString();
                         Console.WriteLine($"ID: {lessonID}; Название: {discriprions}");
                     }
             }
@@ -45,7 +45,7 @@ namespace HomeWorkGBA
                         if (metod.ToString() == "Void Demo()")
                         {
                             var obj = Activator.CreateInstance(type);
-                            string lessonID = obj.GetType().GetProperty("lessonID").GetValue(obj, null).ToString();
+                            string lessonID = type.GetProperty("lessonID").GetValue(obj, null).ToString();
                             if (lessonID == input)
                             {
                                 metod.Invoke(obj, null);
