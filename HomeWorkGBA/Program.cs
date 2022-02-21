@@ -9,6 +9,7 @@ namespace HomeWorkGBA
         static void Main(string[] args)
         {
             // Подключаем библиотеку
+            List<ILesson> listLesson = new List<ILesson>();
             Assembly asm = Assembly.LoadFrom("HomeWorkClass.dll");
             Type[] types = asm.GetTypes();
             Console.WriteLine("Список заданий:");
@@ -22,39 +23,32 @@ namespace HomeWorkGBA
                 foreach (var metod in type.GetMethods())
                     if (metod.ToString() == "Void Demo()")
                     {
-                        var obj = asm.CreateInstance(type.FullName);
-                        string lessonID = type.GetProperty("lessonID").GetValue(obj, null).ToString();
-                        string discriprions = type.GetProperty("discriprions").GetValue(obj, null).ToString();
-                        Console.WriteLine($"ID: {lessonID}; Название: {discriprions}");
+
+                        var obj = Activator.CreateInstance(type);
+                        listLesson.Add((ILesson)obj);
                     }
             }
+            foreach (ILesson lesson in listLesson)
+            {
+                Console.WriteLine($"ID урока: {lesson.lessonID} Описание: {lesson.discriprions}");
+            }
             string input = null;
-            // Работа с вводом, ищем в методах свойство ссответствующее введенному заданию, запускаем метод из библиотеки.
             while (input != "exit")
             {
-                Console.WriteLine("Введите ID задания для продолжения или \"exit\" для выхода.");
+                Console.WriteLine("Введите ID урока, который хотите запустить.");
                 input = Console.ReadLine();
-                foreach (var type in types)
+                foreach (ILesson lesson in listLesson)
                 {
-                    if (type.IsInterface)
+                    if (input == lesson.lessonID)
                     {
-                        continue;
-                    }
-                    foreach (var metod in type.GetMethods())
-                    {
-                        if (metod.ToString() == "Void Demo()")
-                        {
-                            var obj = Activator.CreateInstance(type);
-                            string lessonID = type.GetProperty("lessonID").GetValue(obj, null).ToString();
-                            if (lessonID == input)
-                            {
-                                metod.Invoke(obj, null);
-                            }
-                        }
+                        lesson.Demo();
+                        break;
                     }
                 }
             }
         }
+
     }
 }
+
 

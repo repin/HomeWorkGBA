@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HomeWorkGBA
 {
-    interface ILesson
+    public interface ILesson
     {
         public string lessonID { get; }
 

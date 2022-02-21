@@ -6,4 +6,10 @@
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="InterfaceClass">
+      <HintPath>bin\Debug\netcoreapp3.1\InterfaceClass.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

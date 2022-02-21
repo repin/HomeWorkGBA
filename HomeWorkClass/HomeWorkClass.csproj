@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="InterfaceClass">
+      <HintPath>..\HomeWorkGBA\bin\Debug\netcoreapp3.1\InterfaceClass.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
