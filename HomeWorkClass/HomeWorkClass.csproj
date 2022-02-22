@@ -1,14 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
     <Reference Include="InterfaceClass">
-      <HintPath>bin\Debug\netcoreapp3.1\InterfaceClass.dll</HintPath>
+      <HintPath>..\HomeWorkGBA\bin\Debug\netcoreapp3.1\InterfaceClass.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace HomeWorkGBA
 {
@@ -7,35 +8,47 @@ namespace HomeWorkGBA
     {
         static void Main(string[] args)
         {
-            List<ILesson> lessonList = new List<ILesson>
-            {
-                {new lesson1.Lesson1_1()},
-                {new lesson1.Lesson1_3()},
-                {new lesson2_1.Lesson2_1()},
-                {new lesson3_1.Lesson3_1()},
-                {new lesson4_1.Lesson4_1()},
-                {new lesson5_1.Lesson5_1()}
-            };
+            // Подключаем библиотеку
+            List<ILesson> listLesson = new List<ILesson>();
+            Assembly asm = Assembly.LoadFrom("HomeWorkClass.dll");
+            Type[] types = asm.GetTypes();
             Console.WriteLine("Список заданий:");
-            foreach (ILesson lesson in lessonList)
+            // Перебираем типы и выводим на экран те, в которых есть метод "Demo()" 
+            foreach (var type in types)
             {
-                Console.WriteLine($"ID: {lesson.lessonID}; Название: {lesson.discriprions}");
+                if (type.IsInterface)
+                {
+                    continue;
+                }
+                foreach (var metod in type.GetMethods())
+                    if (metod.ToString() == "Void Demo()")
+                    {
+
+                        var obj = Activator.CreateInstance(type);
+                        listLesson.Add((ILesson)obj);
+                    }
+            }
+            foreach (ILesson lesson in listLesson)
+            {
+                Console.WriteLine($"ID урока: {lesson.lessonID} Описание: {lesson.discriprions}");
             }
             string input = null;
             while (input != "exit")
             {
-                Console.WriteLine("Введите ID задания для продолжения или \"exit\" для выхода.");
+                Console.WriteLine("Введите ID урока, который хотите запустить.");
                 input = Console.ReadLine();
-                foreach (ILesson lesson in lessonList)
+                foreach (ILesson lesson in listLesson)
                 {
-                    if (lesson.lessonID == input)
+                    if (input == lesson.lessonID)
                     {
                         lesson.Demo();
+                        break;
                     }
                 }
             }
-
-
         }
+
     }
 }
+
+

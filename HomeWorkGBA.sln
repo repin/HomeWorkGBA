@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWorkGBA", "HomeWorkGBA\HomeWorkGBA.csproj", "{8D16581A-04BD-4E06-BF91-CB23645AA111}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWorkClass", "HomeWorkClass\HomeWorkClass.csproj", "{B1DB2FCA-5E8B-4061-972E-51D6C1D50606}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceClass", "Interface\InterfaceClass.csproj", "{F92A4C19-EEAE-4833-87AC-A21575823FAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,22 @@ Global
 		{8D16581A-04BD-4E06-BF91-CB23645AA111}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8D16581A-04BD-4E06-BF91-CB23645AA111}.Release|x64.ActiveCfg = Release|x64
 		{8D16581A-04BD-4E06-BF91-CB23645AA111}.Release|x64.Build.0 = Release|x64
+		{B1DB2FCA-5E8B-4061-972E-51D6C1D50606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1DB2FCA-5E8B-4061-972E-51D6C1D50606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1DB2FCA-5E8B-4061-972E-51D6C1D50606}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B1DB2FCA-5E8B-4061-972E-51D6C1D50606}.Debug|x64.Build.0 = Debug|Any CPU
+		{B1DB2FCA-5E8B-4061-972E-51D6C1D50606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1DB2FCA-5E8B-4061-972E-51D6C1D50606}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1DB2FCA-5E8B-4061-972E-51D6C1D50606}.Release|x64.ActiveCfg = Release|Any CPU
+		{B1DB2FCA-5E8B-4061-972E-51D6C1D50606}.Release|x64.Build.0 = Release|Any CPU
+		{F92A4C19-EEAE-4833-87AC-A21575823FAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F92A4C19-EEAE-4833-87AC-A21575823FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F92A4C19-EEAE-4833-87AC-A21575823FAC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F92A4C19-EEAE-4833-87AC-A21575823FAC}.Debug|x64.Build.0 = Debug|Any CPU
+		{F92A4C19-EEAE-4833-87AC-A21575823FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F92A4C19-EEAE-4833-87AC-A21575823FAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F92A4C19-EEAE-4833-87AC-A21575823FAC}.Release|x64.ActiveCfg = Release|Any CPU
+		{F92A4C19-EEAE-4833-87AC-A21575823FAC}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
