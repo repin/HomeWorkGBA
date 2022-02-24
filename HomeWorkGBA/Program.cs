@@ -28,6 +28,7 @@ namespace HomeWorkGBA
                         listLesson.Add((ILesson)obj);
                     }
             }
+            listLesson.Add(new Lesson7_1.Lesson7_1()) ;
             foreach (ILesson lesson in listLesson)
             {
                 Console.WriteLine($"ID урока: {lesson.lessonID} Описание: {lesson.discriprions}");
