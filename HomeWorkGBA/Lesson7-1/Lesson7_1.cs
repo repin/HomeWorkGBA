@@ -10,17 +10,16 @@ namespace HomeWorkGBA.Lesson7_1
 
         public void Demo()
         {
-            CountTriectories(3, 6);
-            CountTriectories(10, 6);
-            CountTriectories(10, 16);
-            CountTriectories(2, 2);
-            CountTriectories(7, 9);
+            for (int i = 1; i < 101; i++)
+            {
+                CountTraectories(i, i);
+            }
 
         }
 
-        public void CountTriectories(int a, int b)
+        public void CountTraectories(int a, int b)
         {
-            int[,] array = new int[a, b];
+            double[,] array = new double[a, b];
             for (int i = 0; i < b; i++)
             {
                 array[0, i] = 1;
@@ -36,10 +35,10 @@ namespace HomeWorkGBA.Lesson7_1
                 }
             }
             Console.WriteLine($"Количество путей в матрице {a}x{b} сотавляет: {array[a - 1, b - 1]}");
-            TestDispleyMatrix(array, a, b);
+            //TestDispleyMatrix(array, a, b);
         }
 
-        private void TestDispleyMatrix(int[,] array, int a, int b)
+        private void TestDispleyMatrix(double[,] array, int a, int b)
         {
             Console.WriteLine("Вывод матрицы для проверки:");
             for (int i = 0; i < a; i++)
@@ -47,7 +46,7 @@ namespace HomeWorkGBA.Lesson7_1
                 for (int k = 0; k < b; k++)
                 {
                     string t = array[i, k].ToString();
-                    
+
                     for (int z = 0; z < 15 - t.Length; z++)
                     {
                         t = t + " ";

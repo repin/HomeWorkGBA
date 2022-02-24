@@ -16,19 +16,14 @@ namespace HomeWorkGBA
             // Перебираем типы и выводим на экран те, в которых есть метод "Demo()" 
             foreach (var type in types)
             {
-                if (type.IsInterface)
-                {
-                    continue;
-                }
-                foreach (var metod in type.GetMethods())
-                    if (metod.ToString() == "Void Demo()")
+                foreach (var getInterf in type.GetInterfaces())
+                    if (getInterf.Name == "ILesson")
                     {
-
                         var obj = Activator.CreateInstance(type);
                         listLesson.Add((ILesson)obj);
                     }
             }
-            listLesson.Add(new Lesson7_1.Lesson7_1()) ;
+            listLesson.Add(new Lesson7_1.Lesson7_1());
             foreach (ILesson lesson in listLesson)
             {
                 Console.WriteLine($"ID урока: {lesson.lessonID} Описание: {lesson.discriprions}");
